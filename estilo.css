@@ -1,0 +1,31 @@
+   .bg-light {
+    background-color: #f1f3f5 !important;
+}
+.navbar-toggler {
+    border-color: #0d6efd; /* Azul do Bootstrap */
+}
+/* 2. Muda a cor da 'aura' azul/cinza quando clicamos */
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Sombra azul suave */
+}
+
+/* 3.  Muda a cor das 3 linhazinhas internas para azul */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(13, 110, 253, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+.navbar-brand img{
+    border-radius: 33%;
+    width: 100%;
+}
+.ms-autobtnbtn-outline-primaryms-auto{
+   left: 100px;
+}
+/* Seleciona as imagens dentro do seu carrossel específico */
+#meuCarrossel .carousel-item img {
+    height: 350px !important; /* Aqui você define a altura "baixinha" */
+    object-fit: contain;      /* 'contain' não corta a imagem, 'cover' corta mas preenche tudo. Teste qual prefere! */
+    background-color: #f8f9fa; /* Um fundinho caso a imagem não ocupe toda a largura */
+    margin: 0 auto;           /* Garante que a imagem se alinhe ao centro */
+}
