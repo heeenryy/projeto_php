@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
      <link rel="stylesheet" href="estilo.css">
     <script src="padrao_cards.js"></script>
     <?php require("conexao.php") ?>
-    <title>Document</title>
+    <title>Pagina inicial</title>
 </head>
 <body>
      <!-- cabeçalho -->
@@ -72,7 +72,7 @@
   <hr class="my-5"> 
 <div class="row">
     <?php 
-    // O motor começa aqui: enquanto houver uma linha de curso, ele guarda em $curso
+    //  começa aqui: enquanto houver uma linha de curso, ele guarda em $curso
     while($curso = mysqli_fetch_assoc($resultado)): 
     ?>
         <div class="col-md-4 mb-4">
@@ -99,7 +99,7 @@
             </div>
         </div>
     <?php 
-    // O motor para aqui e volta para o início até acabar os cursos
+    //  para aqui e volta para o início até acabar os cursos
     endwhile; 
     ?>
 </div>
