@@ -1,16 +1,18 @@
 <?php 
-session_start();
-include("conexao.php");
+session_start(); // inicio da sessão 
+include("conexao.php"); //Puxa o arquivo de conexão com o banco 
 
 $usuario_digitado = $_POST['usuario'];
 $senha_digitada = $_POST['senha'];
 
-$stmt = $conn->prepare( "SELECT * FROM adm WHERE usuario = ?");
-$stmt->bind_param("s", $usuario_digitado);
-$stmt->execute();
+// seguraça contra sql injection. Prepared Statement
 
-$result = $stmt->get_result();
-$adm = $result->fetch_assoc();
+$stmt = $conn->prepare( "SELECT * FROM adm WHERE usuario = ?"); // preparação da query com um 'burado' nela usando '?' (placeholder) 
+$stmt->bind_param("s", $usuario_digitado); // aqui preenche o '?' com o valor real e o "s" diz o tipo de dado (string)
+$stmt->execute(); // aqui a query é enviada e executada no banco de dados com o valor real no lugar do '?'
+
+$result = $stmt->get_result(); // aqui pega o resultado da consulta
+$adm = $result->fetch_assoc(); // aqui o método pega a primeira linha do resultado e transforma em array associativa
 
 
 
@@ -32,13 +34,7 @@ if ($adm) {
 } else {
 
     
-    echo "adm não encontrado";
+    header("Location: login.php?erro=usuario");
     exit(); 
 }
-
-
-
-
-
-
 ?>
