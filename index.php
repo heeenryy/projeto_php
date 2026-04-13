@@ -7,12 +7,12 @@
      <link rel="stylesheet" href="estilo.css">
     <script src="padrao_cards.js"></script>
     <?php require("conexao.php") ?>
-    <title>Pagina inicial</title>
+    <title>Document</title>
 </head>
 <body>
      <!-- cabeçalho -->
     <header>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,22 +21,22 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Principal</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Aba 1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Aba 2</a>
             </li>
         </ul>
         <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success ms-auto" type="submit">Search</button>
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+            <button class="btn btn-success ms-auto" type="submit">Pesquisar</button>
         </form>
     </div>
     <div>
-        <button class="ms-auto btn btn-outline-primary ms-auto"><a style="text-decoration: none;" href="login.php">Admin</a></button>      
+        <button class="btn btn-primary ms-2"><a style="color: white; text-decoration:none;" href="login.php">Admin</a></button>      
     </div>
 </div>
 </nav>
@@ -45,34 +45,45 @@
 <main>
 
     <!-- slide 1 -->
-<div class="container  mt-4" style="max-width: 800px;"></div>
-    <div id="meuCarrossel" class="carrousel slide" data-bs-ride="carousel">
-     <div class="carousel-inner">
+<div class="container mt-5" style="max-width: 800px;">
+    
+    <div id="meuCarrossel" class="carousel slide">
+        <div class="carousel-inner">
 
-     <div class="carousel-item active">
-        <img src="imagens/nvphp.png" class="d-block mx-auto" alt="curso 1">
-           </div>
+            <div class="carousel-item active">
+                <img src="imagens/php1.png" class="d-block w-100" alt="curso 1">
+            </div>
 
-           <!-- slide 2 -->
             <div class="carousel-item">
-        <img src="imagens/nvjs.png" class="d-block mx-auto" alt="curso 1">
-           </div>
+                <img src="imagens/js1.png" class="d-block w-100" alt="curso 2">
+            </div>
 
-           <!-- slide 3 -->
             <div class="carousel-item">
-        <img src="imagens/kt.png" class="d-block mx-auto" alt="curso 1">
-           </div>  
-     </div>
+                <img src="imagens/kt1.png" class="d-block w-100" alt="curso 3">
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#meuCarrossel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#meuCarrossel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+            
+        </div>
     </div>
+
 </div>
 
   <!-- cursos -->
  <?php $resultado = mysqli_query($conn, "SELECT * FROM cursos ORDER BY id_curso DESC");
  ?>
   <hr class="my-5"> 
-<div class="row">
+<div class="container">
+    <h2 style="text-align:center; margin-bottom:40px;"  >Nossos principais lançamentos🚀</h2>
+    <div class="row">
     <?php 
-    //  começa aqui: enquanto houver uma linha de curso, ele guarda em $curso
+    // O motor começa aqui: enquanto houver uma linha de curso, ele guarda em $curso
     while($curso = mysqli_fetch_assoc($resultado)): 
     ?>
         <div class="col-md-4 mb-4">
@@ -80,7 +91,7 @@
                 <img src="imagens/<?php echo $curso['foto']; ?>" class="card-img-top" style="height: 180px; object-fit: contain;">
                 
                 <div class="card-body">
-                    <h5 class="fw-bold"><?php echo $curso['nome_curso']; ?></h5>
+                    <h5 class="fw-bold text-dark"><?php echo $curso['nome_curso']; ?></h5>
                 </div>
 
                 <div class="card-body border-top">
@@ -92,21 +103,20 @@
                     <h6 class="text-muted">Valor</h6>
                     <p class="text-success fw-bold">R$ <?php echo number_format($curso['preco'], 2, ',', '.'); ?></p>
                     
-                    <a href="confirmar_exclusao.php?id=<?php echo $curso['id_curso']; ?>" class="btn btn- btn-primary -sm w-100">
+                    <a href="confirmar_exclusao.php?id=<?php echo $curso['id_curso']; ?>" class="btn btn-primary btn-sm w-100">
                         Comprar Agora 
                     </a>
                 </div>
             </div>
         </div>
     <?php 
-    //  para aqui e volta para o início até acabar os cursos
+    // O motor para aqui e volta para o início até acabar os cursos
     endwhile; 
     ?>
+    </div>
 </div>
-
-
-
 </main>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
