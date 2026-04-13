@@ -29,3 +29,13 @@
     background-color: #f8f9fa; /* Um fundinho caso a imagem não ocupe toda a largura */
     margin: 0 auto;           /* Garante que a imagem se alinhe ao centro */
 }
+
+.card:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #198754; /* verde um pouco mais escuro */
+    border-color: #198754;
+}

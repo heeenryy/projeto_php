@@ -24,7 +24,7 @@
      
     // 3. Agora acessamos os dados pelas etiquetas (nomes das colunas)
     ?>
-   <div class="alert alert-warning">
+   <div class="alert alert-warning" style="margin-top: 50px;">
     <h4>Atenção! ⚠️</h4>
     <p>Você tem certeza que deseja excluir o curso: <strong><?php echo $cursos['nome_curso']; ?></strong>?</p>
     

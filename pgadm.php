@@ -1,10 +1,5 @@
     <?php 
     session_start();
-    
-    if (!isset($_SESSION['adm'])){
-        header("Location: login.php");
-        exit();
-    }
     require("protecao.php");
     require("conexao.php") ?>
 
@@ -30,13 +25,13 @@ $resultado = mysqli_query($conn, "SELECT * FROM cursos ORDER BY id_curso DESC");
     <div class="card p-4 shadow-sm">
         <h4>Cadastrar Novo Curso 🎓</h4>
         <form action="cadastro.php" method="POST">
-            <input type="text" class="form-control" name="nome_curso" placeholder="Nome Do Curso">
-            <input type="text" class="form-control" name="descricao" placeholder="Descrição">
-            <input type="number" class="form-control" step="0.01" name="preco" placeholder="Valor do curso">
-            <input type="text" class="form-control" name="foto" placeholder="Foto">
+            <input type="text" class="form-control mb-2" name="nome_curso" placeholder="Nome Do Curso">
+            <input type="text" class="form-control mb-2" name="descricao" placeholder="Descrição">
+            <input type="number" class="form-control mb-2" step="0.01" name="preco" placeholder="Valor do curso">
+            <input type="text" class="form-control mb-2" name="foto" placeholder="Foto">
 
              <button type="submit" class="btn btn-success">Adicionar Produto</button>
-             <a href="sair.php" class="btn btn-primary">Voltar a Pagina Inicial?</a>
+             <a href="sair.php" class="btn btn-primary">Voltar a Pagina Inicial</a>
             </form>
     </div>
 
@@ -63,7 +58,7 @@ $resultado = mysqli_query($conn, "SELECT * FROM cursos ORDER BY id_curso DESC");
                     <h6 class="text-muted">Valor</h6>
                     <p class="text-success fw-bold">R$ <?php echo number_format($curso['preco'], 2, ',', '.'); ?></p>
                     
-                    <a href="confirmar_exclusao.php?id=<?php echo $curso['id_curso']; ?>" class="btn btn-danger btn-sm w-100">
+                    <a href="confirmar_exclusao.php?id=<?php echo $curso['id_curso']; ?>" class="btn btn-danger btn-sm w-100 mb-2">
                         Excluir 🗑️
                     </a>
                 
